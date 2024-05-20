@@ -52,18 +52,16 @@ const formData = ref({
     password: ''
 })
 
-const iniciarmodalActive = ref(false)
-const registrationModalActive = ref(false)
+const iniciarmodalActive = ref(false);
+const registrationModalActive = ref(false);
 
 
 const openRegistrationModal = () => {
-    registrationModalActive.value = true;
     iniciarmodalActive.value = false;
 }
 
 const closeRegistrationModal = () => {
     registrationModalActive.value = false;
-    iniciarmodalActive.value = true;
 }
 
 const submitForm = async () => {

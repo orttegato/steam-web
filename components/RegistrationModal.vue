@@ -49,6 +49,7 @@ const registrationModalActive = ref(false);
 const openIniciarModal = () => {
     iniciarmodalActive.value = true;
     registrationModalActive.value = false;
+    emit("closeModal");
 
 };
 
