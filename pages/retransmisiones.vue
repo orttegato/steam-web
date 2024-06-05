@@ -27,9 +27,13 @@
 </template>
 
 <script setup>
-import RetransmisionesCard from '@/components/local/Retransmisionescard.vue';
+import RetransmisionesCard from '@/components/local/RetransmisionesCard.vue';
 import NavBarComunity from '@/components/local/NavBarComunity.vue';
 </script>
 
 <style lang="postcss">
+.subtitulo{
+    
+    font-weight: bold;
+}
 </style>
