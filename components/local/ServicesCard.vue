@@ -1,11 +1,11 @@
 <template>
     <div class="service-container">
         <div :class="{ 'image-left': imagePosition === 'left', 'image-right': imagePosition === 'right' }"
-        class="service-noticias">
+            class="service-noticias">
             <img :src="service.src" :alt="service.title">
             <div class="info-card">
                 <div class="info-arriba">
-                    <h1>{{service.title}}</h1>
+                    <h1>{{ service.title }}</h1>
                     <p class="info">Tu plataforma definitiva para juegos y entretenimiento! Desde su lanzamiento en
                         2003, Steam se ha
                         convertido en el epicentro de la comunidad global de jugadores, ofreciendo una amplia variedad
@@ -26,9 +26,9 @@
 <script setup>
 const props = defineProps({
     service: {
-            type: Object,
-            required: false
-        },
+        type: Object,
+        required: false
+    },
     imagen: {
         type: Object,
         required: false
@@ -44,7 +44,6 @@ const props = defineProps({
 .service-container {
     display: flex;
     width: 100%;
-    padding-top: 50px;
     padding-bottom: 50px;
 }
 
@@ -58,7 +57,8 @@ const props = defineProps({
     &.image-left {
         flex-direction: row;
         gap: 100px;
-        img{
+
+        img {
             border-top-right-radius: 62px;
             border-bottom-right-radius: 62px;
         }
@@ -66,7 +66,8 @@ const props = defineProps({
 
     &.image-right {
         flex-direction: row-reverse;
-        img{
+
+        img {
             border-top-left-radius: 62px;
             border-bottom-left-radius: 62px;
         }
@@ -82,13 +83,49 @@ const props = defineProps({
     }
 
     .info-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+    }
+}
+
+
+@media (max-width: 1024px) {
+
+    .servicios{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .service-container {
+        padding-bottom: 120px;
+    }
+
+    .service-noticias.image-left {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-noticias.image-right {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-noticias img {
+        width: 500px;
+    }
+
+    .service-noticias .info-card {
+    padding: 20px;
+    gap: 20px;
+}
+
+.service-noticias .info {
+    width: 90%;
+}
 
 }
-}
-
-
 </style>

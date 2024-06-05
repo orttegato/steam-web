@@ -41,7 +41,7 @@ function prevSlide() {
     justify-content: center;
 }
 
-.buttons{
+.buttons {
     width: 1400px;
     display: flex;
     justify-content: center;
@@ -63,5 +63,22 @@ function prevSlide() {
 
 .slide.active {
     opacity: 1;
+}
+
+/* RESPONSIVE*/
+
+@media (max-width: 1024px) {
+    .carousel {
+        width: 100%;
+        height: 600px;
+        width: 400px;
+        overflow: hidden;
+    }
+
+    .slide,
+    .slide img {
+        width: 100%;
+        height: 100%;
+    }
 }
 </style>

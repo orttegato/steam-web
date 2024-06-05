@@ -37,7 +37,7 @@
             </div>
             <div class="noticia-container">
                 <NoticiasCard v-if="showSingleCard" :noticia="noticias[0]" :imagePosition="'left'">
-      </NoticiasCard>
+                </NoticiasCard>
 
             </div>
             <div class="separador-container">
@@ -48,9 +48,9 @@
             </div>
 
             <div class="noticia-container">
-                <NoticiasCard v-for="(noticia, index) in noticias.slice(1, 3)" :key="index"
-                    :noticia="noticia" :imagePosition="'right'">
-      </NoticiasCard>
+                <NoticiasCard v-for="(noticia, index) in noticias.slice(1, 3)" :key="index" :noticia="noticia"
+                    :imagePosition="'right'">
+                </NoticiasCard>
             </div>
 
             <div class="boton">
@@ -66,8 +66,6 @@
                 </ServicesCard>
             </article>
         </div>
-
-        <Footer></Footer>
     </div>
 
 </template>
@@ -80,6 +78,10 @@ import Carousel from '@/components/local/Carousel.vue';
 import NoticiasCard from '@/components/local/NoticiasCard.vue';
 import ServicesCard from '@/components/local/ServicesCard.vue';
 import { ref } from 'vue'
+
+
+const { data } = useFetch('https://api.rawg.io/api/games?key=3bf2278311dc4c4ab99bbe5ff644cf7f');
+
 
 const noticias = ref([
     {
@@ -103,7 +105,7 @@ const showSingleCard = ref(true); // Mostrar solo una tarjeta la primera vez
 
 // Lógica para determinar imagePosition dinámicamente
 const imagePosition = computed(() => {
-  return showSingleCard.value ? 'left' : 'right';
+    return showSingleCard.value ? 'left' : 'right';
 });
 
 const services = ref([
@@ -131,12 +133,17 @@ const servicesConfig = ref([
 </script>
 
 <style lang="postcss">
-h1 {
-    width: 800px;
+body {
+    border: 1px red;
 }
 
 p {
-    font-size: 10px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bolder;
 }
 
 
@@ -145,6 +152,11 @@ p {
     flex-direction: column;
     width: 100%;
     align-items: center;
+
+    h1 {
+        width: 800px;
+    }
+
 
     .text-inicio {
         display: flex;
@@ -157,7 +169,7 @@ p {
         padding-left: 100px;
         padding-right: 100px;
 
-        p{
+        p {
             width: 300px;
         }
     }
@@ -184,16 +196,12 @@ p {
             width: 50px;
         }
 
-        p{
+        p {
             width: 300px;
         }
     }
 }
 
-h1 {
-    font-size: 60px;
-    font-weight: bolder;
-}
 
 .cards-section {
     display: flex;
@@ -235,5 +243,43 @@ h1 {
     .indice {
         padding-left: 70px;
     }
+}
+
+@media (max-width: 1024px) {
+
+    .body{
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    .noticias{
+        padding: 20px;
+        flex-direction: column;
+
+    }
+
+    .noticias .text-noticias{
+        width: 85%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .inicio .text-inicio {
+        width: 85%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;;
+    }
+
+
 }
 </style>

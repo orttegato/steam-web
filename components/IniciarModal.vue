@@ -173,4 +173,56 @@ b:hover {
 
 
 
+
+@media (max-width: 720px) {
+    .panel {
+    top: 90px;
+    left: 50px;
+    border-radius: 32px;
+    width: 300px;
+    height: 350px;
+}
+
+.panel h1 {
+    width: 180px;
+    font-size: 25px;
+}
+
+.panel p {
+    width: 180px;
+    font-size: 12px;
+}
+
+.aux{
+    border-radius: 16px;
+    height: 55px;
+    width: 300px;
+    top: 460px;
+    left: 50px;
+
+}
+
+.boton-modal {
+    width: 100%;
+    align-items: center;
+}
+
+.middle-modal {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    gap: 10px;
+    width: 250px;
+}
+
+.input {
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 10px;
+
+}
+}
+
+
 </style>

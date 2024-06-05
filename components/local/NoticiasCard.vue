@@ -2,7 +2,7 @@
     <div class="article-container">
         <div :class="{ 'image-left': imagePosition === 'left', 'image-right': imagePosition === 'right' }"
             class="article-noticias">
-            <img :src="noticia.src" :alt="noticia.title">
+            <img class="img-noticias" :src="noticia.src" :alt="noticia.title">
             <div class="info-card">
                 <div class="info-arriba">
                     <h1>{{ noticia.title }}</h1>
@@ -66,9 +66,11 @@ const props = defineProps({
 
     &.image-right {
         flex-direction: row-reverse;
+        justify-content: space-between;
+        padding-left: 70px;
     }
 
-    img {
+    .img-noticias {
         width: 450px;
         height: 350px;
         border-radius: 62px;
@@ -89,5 +91,38 @@ const props = defineProps({
             opacity: 50%;
         }
     }
+}
+
+
+@media (max-width: 1024px) {
+    .article-noticias.image-left {
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 1rem;
+        padding: 0px;
+        height: 100%;
+    }
+
+    .article-noticias.image-right {
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 1rem;
+        padding: 0px;
+        height: 100%;
+    }
+
+    .article-noticias .info-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .article-noticias .info {
+    width: 100%;
+}
+
 }
 </style>

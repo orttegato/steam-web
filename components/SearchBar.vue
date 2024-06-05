@@ -47,5 +47,19 @@ function search() {
     }
 }
 
+@media (max-width: 1024px) {
+    .search-input {
+        display: none;
+    }
+
+    .search-bar{   
+        width: 30px;
+        gap: 0px;
+        height: 30px;
+        margin: 5px;
+
+    }
+}
+
 
 </style>

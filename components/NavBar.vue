@@ -2,25 +2,34 @@
     <nav class="header">
         <div class="container-header">
             <div class="header-left">
-                <img src="/public/logo.png" width="120px">
+                <NuxtLink to="/">
+                    <img class="icono-normal" src="/public/logo.png" width="120px" alt="Logo">
+                    <img class="icono-responsive" src="/public/solo.png">
+                </NuxtLink>
             </div>
             <ul class="header-center">
                 <li>
-                    <NuxtLink to="/">SteamCreate</NuxtLink>
+                    <NuxtLink to="/create">
+                        <img class="icono-responsive" src="/public/create.png">
+                        <p>SteamCreate</p>
+                    </NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="/about">Tienda</NuxtLink>
+                    <NuxtLink to="/about">
+                        <img class="icono-responsive" src="/public/tienda.png">
+                        <p>Tienda</p>
+                    </NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="/">Comunidad</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink to="/about">Soporte</NuxtLink>
+                    <NuxtLink to="/comunity">
+                        <img class="icono-responsive" src="/public/comunidad.png">
+                        <p>Comunidad</p>
+                    </NuxtLink>
                 </li>
             </ul>
 
             <button v-if="!logged && !iniciarmodalActive" @click="openIniciarModal">
-                Iniciar sesión
+                <p class="inicio">Iniciar sesión</p>
             </button>
             <div v-else class="user" @click="logout">
                 <Icon name="ph:user" size="1.2em" color="white" />
@@ -64,18 +73,18 @@ const logout = () => {
 </script>
 
 <style lang="postcss">
-/* Estilo para NuxtLink */
 a {
     color: white;
-    /* Color por defecto del texto */
     transition: color 0.3s ease;
-    /* Transición suave del color */
 
-    /* Cambia el color al hacer hover */
     &:hover {
         color: #0047FF;
-        /* Color azul al hacer hover */
+        font-weight: bold;
     }
+}
+
+.icono-responsive {
+    display: none;
 }
 
 .header {
@@ -93,6 +102,10 @@ a {
     width: 100%;
 }
 
+.inicio{
+        font-size: 16px;
+}
+
 .container-header {
     display: flex;
     flex-direction: row;
@@ -107,6 +120,14 @@ a {
 .header-center {
     position: absolute;
     left: 550px;
+
+    p {
+        font-size: 16px
+    }
+
+    p:hover {
+        color: #0047FF
+    }
 }
 
 ul {
@@ -115,5 +136,34 @@ ul {
     li {
         @apply p-4;
     }
+}
+
+@media (max-width: 720px) {
+    .icono-responsive {
+        display: flex;
+    }
+
+    .icono-normal{
+        display: none;
+    }
+
+    .header-center p {
+        display: none;
+    }
+
+    .header-center{
+        left: 115px;
+    }
+
+    li{
+        padding: 5px;
+    }
+
+    .inicio{
+        font-size: 12px;
+}
+
+
+
 }
 </style>
