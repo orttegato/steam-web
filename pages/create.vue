@@ -62,11 +62,6 @@
             </div>
         </div>
 
-        <div class="flex justify-center items-center">
-            <img src="../public/render.png" alt="">
-        </div>
-
-
     </div>
 
 </template>
